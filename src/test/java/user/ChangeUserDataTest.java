@@ -11,6 +11,7 @@ import org.junit.Test;
 
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.apache.http.HttpStatus.SC_UNAUTHORIZED;
+import static user.UserCreating.*;
 
 public class ChangeUserDataTest {
     User user;
@@ -20,7 +21,7 @@ public class ChangeUserDataTest {
     @Before
     public void setUp() {
         Config.start();
-        user = UserCreating.getUser();
+        user = UserCreating.getUser(email, password, name);
         userResponse = new UserResponse();
     }
 

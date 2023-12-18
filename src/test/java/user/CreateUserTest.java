@@ -11,6 +11,7 @@ import org.junit.Test;
 import static org.apache.http.HttpStatus.SC_FORBIDDEN;
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.junit.Assert.assertTrue;
+import static user.UserCreating.*;
 
 public class CreateUserTest {
     User user;
@@ -26,7 +27,7 @@ public class CreateUserTest {
     @Test
     @DisplayName("Создание уникального пользователя")
     public void createUserTest() {
-        user = UserCreating.getUser();
+        user = UserCreating.getUser(email, password, name);
         ValidatableResponse responseUser = userResponse.createUser(user);
         accessToken = responseUser.extract().path("accessToken");
         int statusCode = responseUser.extract().statusCode();
@@ -38,7 +39,7 @@ public class CreateUserTest {
     @Test
     @DisplayName("Создание пользователя, который уже зарегистрирован")
     public void createUserAlreadyExistsTest() {
-        user = UserCreating.getUser();
+        user = UserCreating.getUser(email, password, name);
         ValidatableResponse responseUser = userResponse.createUser(user);
         accessToken = responseUser.extract().path("accessToken");
         int statusCode = responseUser.extract().statusCode();

@@ -19,6 +19,7 @@ import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertTrue;
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.apache.http.HttpStatus.SC_UNAUTHORIZED;
+import static user.UserCreating.*;
 
 public class GetOrderTest {
     User user;
@@ -30,7 +31,7 @@ public class GetOrderTest {
     public void setUp() {
         Config.start();
         orderResponse = new OrderResponse();
-        user = UserCreating.getUser();
+        user = UserCreating.getUser(email, password, name);
         userResponse = new UserResponse();
     }
 

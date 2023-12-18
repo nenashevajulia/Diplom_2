@@ -11,6 +11,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static user.UserCreating.*;
 
 public class LoginUserTest {
     User user;
@@ -20,7 +21,7 @@ public class LoginUserTest {
     @Before
     public void setUp() {
         Config.start();
-        user = UserCreating.getUser();
+        user = UserCreating.getUser(email, password, name);
         userResponse = new UserResponse();
         ValidatableResponse responseUser = userResponse.createUser(user);
         accessToken = responseUser.extract().path("accessToken");

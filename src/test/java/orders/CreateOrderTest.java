@@ -20,19 +20,20 @@ import static org.apache.http.HttpStatus.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
 import static org.junit.Assert.assertTrue;
+import static user.UserCreating.*;
 
 public class CreateOrderTest {
+    User user;
+    UserResponse userResponse;
     private Order order;
     private OrderResponse orderResponse;
     private String accessToken;
-    User user;
-    UserResponse userResponse;
 
     @Before
     public void setUp() {
         Config.start();
         orderResponse = new OrderResponse();
-        user = UserCreating.getUser();
+        user = UserCreating.getUser(email, password, name);
         userResponse = new UserResponse();
         ValidatableResponse responseUser = userResponse.createUser(user);
         accessToken = responseUser.extract().path("accessToken");

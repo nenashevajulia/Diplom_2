@@ -2,12 +2,12 @@ package login;
 
 import user.User;
 
-import static user.UserCreating.EMAIL;
-import static user.UserCreating.PASSWORD;
+import static user.UserCreating.email;
+import static user.UserCreating.password;
 
 public class LoginAuthorization {
     public static Login getLoginUser(User user) {
-        Login login = new Login(EMAIL, PASSWORD);
+        Login login = new Login(email, password);
         login.getEmail();
         login.getPassword();
         return login;
