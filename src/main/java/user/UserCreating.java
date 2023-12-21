@@ -8,8 +8,8 @@ public class UserCreating {
     public static String password = RandomStringUtils.randomNumeric(6);
     public static String name = RandomStringUtils.randomAlphabetic(10);
 
-    public static User getUser(String EMAIL, String PASSWORD, String NAME) {
-        User user = new User(EMAIL, PASSWORD, NAME);
+    public static User getUser(String email, String password, String name) {
+        User user = new User(email, password, name);
         return user;
     }
 
